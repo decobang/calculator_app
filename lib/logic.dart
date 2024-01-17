@@ -27,6 +27,10 @@ void calculate() {
   if (displayValue.value.contains('/') &&
       (exp.evaluate(EvaluationType.REAL, cm) == 0)) {
     displayValue.value = "can't divide by zero silly!";
+
+    Future.delayed(const Duration(seconds: 1), () {
+      displayValue.value = ' ';
+    });
   } else {
     double eval = exp.evaluate(EvaluationType.REAL, cm);
     displayValue.value = eval.toString();
